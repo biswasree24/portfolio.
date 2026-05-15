@@ -1,0 +1,753 @@
+Biswasree:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biswasree Das - Frontend Aspirant</title>
+  <meta name="description" content="Biswasree Das — Mathematics student exploring frontend development, with projects in Anime Watchlist, Weather, and Song Watchlist. Soft, dark, cute theme." />
+  <style>
+    :root{
+      /* Soft-deminish dark, with gentle accents */
+      --bg: #0b1020;              /* dark background */
+      --bg-soft: #12172a;
+      --card: rgba(255,255,255,0.08);
+      --card-2: rgba(255,255,255,0.14);
+      --text: #f8f7fb;
+      --muted: #d6d3e8;
+      --accent: #ff79c6;           /* pastel pink for a girly vibe */
+      --accent-2: #7c8aff;          /* soft blue-violet */
+      --shine: rgba(255, 255, 255, 0.25);
+      --shadow: 0 8px 24px rgba(0,0,0,.38);
+      --radius: 14px;
+    }
+    * {box-sizing: border-box}
+    html, body { height: 100%; margin:0; padding:0; font-family: Inter, ui-sans-serif, system-ui; background: radial-gradient(circle at 20% -10%, rgba(124,92,255,.18), transparent 40%), radial-gradient(circle at 90% 0%, rgba(255,121,198,.15), transparent 40%), var(--bg); color: var(--text); scroll-behavior: smooth; }
+
+    /* Sticky, soft header with subtle glow */
+    header {
+      position: sticky; top:0; z-index: 1000;
+      background: rgba(10,12,28,.75);
+      backdrop-filter: saturate(1.2) blur(6px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav {
+      max-width: 1100px; margin:0 auto; padding: 12px 20px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand {
+      display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+    }
+    .brand-logo {
+      width: 28px; height: 28px; border-radius: 9px;
+      background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2), #ffd1e9, var(--accent));
+      box-shadow: 0 0 12px rgba(255, 121, 198, .8);
+    }
+    nav ul { list-style:none; display:flex; gap:14px; padding:0; margin:0; }
+    nav a { color:var(--text); text-decoration:none; padding:8px 12px; border-radius:999px; transition:.25s; border:1px solid transparent; }
+    nav a:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.15); }
+    nav a.active { background: rgba(124,92,255,.25); color:white; box-shadow: inset 0 0 12px rgba(124,92,255,.6); }
+
+    /* Hero with soft glow title */
+    .hero {
+      max-width: 1100px; margin: 28px auto 60px; padding: 0 20px;
+      display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: center;
+    }
+    .hero-title {
+      font-size: 2.6rem; line-height: 1.08; margin: 6px 0 12px;
+      letter-spacing: .2px;
+      position: relative;
+      /* shine effect on heading letters */
+      background: linear-gradient(92deg, #fff, #ffd9f6 40%, #d6e4ff 70%, #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 1px 0 rgba(255,255,255,.05);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
+    }
+    .shine-animate {
+      animation: shine 3s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0% { text-shadow: 0 0 6px rgba(255,255,255,.6); }
+      50% { text-shadow: 0 0 18px rgba(255,255,255,.9); }
+      100% { text-shadow: 0 0 6px rgba(255,255,255,.6); }
+    }
+    .hero p { color: var(--muted); font-size: 1.05rem; margin-bottom: 18px; }
+
+    .cta-row { display:flex; gap:12px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      padding: 12px 18px; border-radius: 999px; border: none; cursor: pointer; font-weight: 600;
+      background: linear-gradient(135deg, var(--accent), #ff6bd6); color:white;
+      box-shadow: 0 6px 14px rgba(255,121,198,.45);
+    }
+    .btn.secondary {
+      background: rgba(255,255,255,.08); color:#f0eefe;
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: none;
+    }
+
+.hero-visual {
+      position: relative; height: 320px; border-radius: 24px; overflow: hidden;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 40%), rgba(15,18,34,.9);
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: var(--shadow);
+    }
+    .orb {
+      position: absolute; width: 180px; height: 180px; border-radius: 50%;
+      filter: blur(0.5px);
+      opacity: .9;
+    }
+    .orb.o1 { left: -40px; top: 40px;
+      background: radial-gradient(circle at 30% 30%, #fff, transparent 40%), #ff7ac3;
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb.o2 { right: 10px; bottom: 20px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle at 40% 40%, #fff, transparent 40%), #7c8aff;
+      animation: float 7s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity:.9 }
+      50% { transform: translateY(-14px) translateX(6px); opacity:1 }
+      100% { transform: translateY(0) translateX(0); opacity:.9 }
+    }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+
+    section { padding: 48px 0; }
+    .section-title { font-size: 1.9rem; margin-bottom: 8px; position: relative; display: inline-block; }
+    .section-title:after {
+      content: ""; display: block; width: 60px; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 4px; margin-top: 6px;
+      box-shadow: 0 0 12px rgba(124,92,255,.6);
+    }
+    .section-sub { color: var(--muted); margin-bottom: 20px; }
+
+    /* Projects grid */
+    .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.15);
+      overflow: hidden; display:flex; flex-direction:column;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 22px rgba(0,0,0,.25); }
+    .card-thumb { height: 150px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:1.05rem; }
+    .card-body { padding: 12px 12px 14px; display:flex; flex-direction:column; gap:6px; }
+    .tag-row { display:flex; gap:6px; flex-wrap:wrap; }
+    .tag { font-size:12px; padding:4px 8px; border-radius:999px; background: rgba(255,255,255,.08); }
+    .card h3 { margin:0; font-size:1.02rem; }
+    .card p { color: var(--muted); font-size: .92rem; margin:0; }
+
+    /* Modal for project details */
+    .modal { position: fixed; inset: 0; display:none; align-items: center; justify-content: center; background: rgba(0,0,0,.6); padding: 20px; }
+    .modal.active { display:flex; }
+    .modal-content { width: min(720px, 92vw); max-height: 80vh; overflow:auto;
+      background: #0b1220; border-radius: 14px; padding: 14px 16px 18px;
+      border: 1px solid rgba(255,255,255,.15); box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    }
+    .modal-header { display:flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .close { background: transparent; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
+
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; text-align: left; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* About and Contact sections */
+    .biography { display:flex; flex-direction:column; gap:12px; }
+    ul { margin:0; padding-left:20px; color: var(--muted); }
+
+    /* Cute, accessible form styling */
+    input, textarea {
+      width:100%; padding:12px; border-radius:8px;
+      border:1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.08); color: var(--text);
+    }
+    textarea { resize: vertical; min-height: 120px; }
+
+    .footer-note { text-align:center; color:var(--muted); font-size: .85rem; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#">
+      <span class="brand-logo" aria-label="logo"></span>
+      <span><strong>Biswasree Das</strong></span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#home" class="active" aria-current="page">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero" aria-label="Intro">
+  <div>
+    <span style="display:inline-block; padding:6px 12px; border-radius:999px; background: rgba(124,92,255,.25); color:white; font-weight:700; font-size:12px;">
+      Mathematics student • Frontend aspirant
+    </span>
+    <h1 class="hero-title shine-animate">Hi, I’m Biswasree Das 👋🍰</h1>
+    <p>I'm a math student with a creative mind and a love for coding and fine arts. I’m passionate about turning ideas into delightful frontend experiences and hope to become a frontend developer. I enjoy building small apps and visual experiments as part of my learning journey.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn secondary">Hire Me</a>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-label="Decorative visuals">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+  </div>
+</section>
+
+<main>
+  <section id="projects" aria-label="Projects">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">A few student-friendly web apps demonstrating frontend skills. Click a card to learn more. Emoji vibe: 😺✨</p>
+
+    <div class="projects" id="projects-grid">
+      <!-- Anime Watchlist -->
+      <article class="card" tabindex="0" data-title="Anime Watchlist" data-desc="A lightweight track-list for anime series with status, ratings, and notes." data-tech="HTML • CSS • JS" data-link="#">
+        <div class="card-thumb" style="background: linear-gradient(135deg,#8b5cf6,#f472b6);">
+          <span>Anime Watchlist 😺</span>
+        </div>
+        <div class="card-body">
+          <div class="tag-row">
+            <span class="tag">UI</span><span class="tag">LocalStorage</span><span class="tag">Filters</span>
+          </div>
+          <h3>Anime Watchlist</h3>
+          <p>Track episodes, status, and personal notes with a clean, responsive UI.</p>
+        </div>
+      </article>
+
+      <!-- Weather App -->
+      <article class="card" tabindex="0" data-title="Weather App" data-desc="A responsive weather dashboard showing current conditions and a 5-day forecast." data-tech="HTML • CSS • JS" data-link="#">
+        <div class="card-thumb" style="background: linear-gradient(135deg,#22c55e,#3b82f6);">
+          <span>Weather App 🌦️</span>
+        </div>
+        <div class="card-body">
+          <div class="tag-row">
+            <span class="tag">APIs</span><span class="tag">UI</span><span class="tag">Responsive</span>
+          </div>
+          <h3>Weather Dashboard</h3>
+          <p>Current conditions and forecast with friendly animations and icons.</p>
+        </div>
+      </article>
+
+      <!-- Song Watchlist -->
+      <article class="card" tabindex="0" data-title="Song Watchlist" data-desc="Track favorite songs, artists, and personal playlists." data-tech="HTML • CSS • JS" data-link="#">
+        <div class="card-thumb" style="background: linear-gradient(135deg,#f59e0b,#f472b6);">
+          <span>Song Watchlist 🎵</span>
+        </div>
+        <div class="card-body">
+          <div class="tag-row">
+            <span class="tag">Playlists</span><span class="tag">Music</span><span class="tag">LocalStorage</span>
+          </div>
+          <h3>Song Watchlist</h3>
+          <p>Curate and rate your favorite tracks with a sleek interface.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<section id="about" aria-label="About">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-sub">I’m a mathematics student who loves coding and the fine arts. My goal is to grow into a frontend developer who builds accessible, beautiful, and high-performance interfaces.</p>
+
+    <div class="grid-2">
+      <div class="card" style="padding:16px;">
+        <h3>Background</h3>
+        <p>Mathematics student with a creative mindset, exploring programming and UI design. I enjoy blending logic with aesthetics to craft intuitive experiences.</p>
+      </div>
+      <div class="card" style="padding:16px;">
+        <h3>Interests</h3>
+        <ul>
+          <li>Frontend development (HTML, CSS, JS, frameworks)</li>
+          <li>Fine arts and design principles</li>
+          <li>Accessibility and inclusive design</li>
+          <li>Continuous learning and portfolio building</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact">
+    <h2 class="section-title">Get in touch</h2>
+    <p class="section-sub">Have a project in mind? Reach out—let’s collaborate. (Teacher-approved vibe: professional with a friendly touch). 😊</p>
+
+    <form id="contact-form" class="grid-2" style="gap:14px; display:grid;" autocomplete="on" onsubmit="return false;">
+      <input type="text" placeholder="Your name" required style="padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);">
+      <input type="email" placeholder="Email" required style="padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);">
+      <input type="text" placeholder="Subject" required style="grid-column: 1 / -1; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);">
+      <textarea placeholder="Message" rows="4" required style="grid-column: 1 / -1; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);"></textarea>
+      <button class="btn" style="grid-column: 1 / -1; justify-self: start;" onclick="submitMock()">Send Message</button>
+    </form>
+
+    <div class="footer-note" aria-live="polite" style="margin-top:8px;">
+      Pro-tip: For real submissions, connect this form to a backend or a service like EmailJS. 📬
+    </div>
+  </section>
+</main>
+
+<!-- Project modal -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Project details">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 id="modal-title">Project Title</h4>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body" style="padding-top:8px;">
+      <p id="modal-desc">Project description goes here.</p>
+      <p><strong>Tech:</strong> <span id="modal-tech"></span></p>
+      <p><a id="modal-link" href="#" target="_blank" rel="noopener">Live Demo / Repo</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Active nav on scroll (simple)
+  const sections = ["home","projects","about","contact"];
+  const navLinks = Array.from(document.querySelectorAll('nav a'));
+  function setActive(){
+    const fromTop = window.scrollY + 120;
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      if(!section) return;
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const active = fromTop >= top && fromTop < top + height;
+      navLinks.forEach(a => {
+        if (a.getAttribute('href') === '#' + id) {
+          a.classList.toggle('active', active);
+        }
+      });
+    });
+  }
+  window.addEventListener('scroll', setActive);
+  setActive();
+
+  // Modal logic
+  const modal = document.getElementById('modal');
+  function openModal(title, desc, tech, link){
+
+document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-desc').textContent = desc;
+    document.getElementById('modal-tech').textContent = tech;
+    const l = document.getElementById('modal-link');
+    l.textContent = link ? 'Live Demo / Repo' : 'Learn more';
+    l.href = link || '#';
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeModal(){
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden','true');
+  }
+  // Attach click handlers to cards
+  document.querySelectorAll('.card').forEach(card => {
+    const title = card.dataset.title;
+    const desc = card.dataset.desc;
+    const tech = card.dataset.tech;
+    const link = card.dataset.link;
+    const open = () => openModal(title, desc, tech, link);
+    card.addEventListener('click', open);
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') open();
+    });
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+  // Mock submit
+  function submitMock(){
+    alert('Thanks! This is a mock submission. You can contact me through the form.');
+  }
+</script>
+
+</body>
+        </html>Biswasree:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biswasree Das - Frontend Aspirant</title>
+  <meta name="description" content="Biswasree Das — Mathematics student exploring frontend development, with projects in Anime Watchlist, Weather, and Song Watchlist. Soft, dark, cute theme." />
+  <style>
+    :root{
+      /* Soft-deminish dark, with gentle accents */
+      --bg: #0b1020;              /* dark background */
+      --bg-soft: #12172a;
+      --card: rgba(255,255,255,0.08);
+      --card-2: rgba(255,255,255,0.14);
+      --text: #f8f7fb;
+      --muted: #d6d3e8;
+      --accent: #ff79c6;           /* pastel pink for a girly vibe */
+      --accent-2: #7c8aff;          /* soft blue-violet */
+      --shine: rgba(255, 255, 255, 0.25);
+      --shadow: 0 8px 24px rgba(0,0,0,.38);
+      --radius: 14px;
+    }
+    * {box-sizing: border-box}
+    html, body { height: 100%; margin:0; padding:0; font-family: Inter, ui-sans-serif, system-ui; background: radial-gradient(circle at 20% -10%, rgba(124,92,255,.18), transparent 40%), radial-gradient(circle at 90% 0%, rgba(255,121,198,.15), transparent 40%), var(--bg); color: var(--text); scroll-behavior: smooth; }
+
+    /* Sticky, soft header with subtle glow */
+    header {
+      position: sticky; top:0; z-index: 1000;
+      background: rgba(10,12,28,.75);
+      backdrop-filter: saturate(1.2) blur(6px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav {
+      max-width: 1100px; margin:0 auto; padding: 12px 20px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand {
+      display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+    }
+    .brand-logo {
+      width: 28px; height: 28px; border-radius: 9px;
+      background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2), #ffd1e9, var(--accent));
+      box-shadow: 0 0 12px rgba(255, 121, 198, .8);
+    }
+    nav ul { list-style:none; display:flex; gap:14px; padding:0; margin:0; }
+    nav a { color:var(--text); text-decoration:none; padding:8px 12px; border-radius:999px; transition:.25s; border:1px solid transparent; }
+    nav a:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.15); }
+    nav a.active { background: rgba(124,92,255,.25); color:white; box-shadow: inset 0 0 12px rgba(124,92,255,.6); }
+
+    /* Hero with soft glow title */
+    .hero {
+      max-width: 1100px; margin: 28px auto 60px; padding: 0 20px;
+      display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: center;
+    }
+    .hero-title {
+      font-size: 2.6rem; line-height: 1.08; margin: 6px 0 12px;
+      letter-spacing: .2px;
+      position: relative;
+      /* shine effect on heading letters */
+      background: linear-gradient(92deg, #fff, #ffd9f6 40%, #d6e4ff 70%, #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 1px 0 rgba(255,255,255,.05);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
+    }
+    .shine-animate {
+      animation: shine 3s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0% { text-shadow: 0 0 6px rgba(255,255,255,.6); }
+      50% { text-shadow: 0 0 18px rgba(255,255,255,.9); }
+      100% { text-shadow: 0 0 6px rgba(255,255,255,.6); }
+    }
+    .hero p { color: var(--muted); font-size: 1.05rem; margin-bottom: 18px; }
+
+    .cta-row { display:flex; gap:12px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      padding: 12px 18px; border-radius: 999px; border: none; cursor: pointer; font-weight: 600;
+      background: linear-gradient(135deg, var(--accent), #ff6bd6); color:white;
+      box-shadow: 0 6px 14px rgba(255,121,198,.45);
+    }
+    .btn.secondary {
+      background: rgba(255,255,255,.08); color:#f0eefe;
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: none;
+    }
+
+.hero-visual {
+      position: relative; height: 320px; border-radius: 24px; overflow: hidden;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 40%), rgba(15,18,34,.9);
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: var(--shadow);
+    }
+    .orb {
+      position: absolute; width: 180px; height: 180px; border-radius: 50%;
+      filter: blur(0.5px);
+      opacity: .9;
+    }
+    .orb.o1 { left: -40px; top: 40px;
+      background: radial-gradient(circle at 30% 30%, #fff, transparent 40%), #ff7ac3;
+      animation: float 6s ease-in-out infinite;
+    }
+    .orb.o2 { right: 10px; bottom: 20px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle at 40% 40%, #fff, transparent 40%), #7c8aff;
+      animation: float 7s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity:.9 }
+      50% { transform: translateY(-14px) translateX(6px); opacity:1 }
+      100% { transform: translateY(0) translateX(0); opacity:.9 }
+    }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+
+    section { padding: 48px 0; }
+    .section-title { font-size: 1.9rem; margin-bottom: 8px; position: relative; display: inline-block; }
+    .section-title:after {
+      content: ""; display: block; width: 60px; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 4px; margin-top: 6px;
+      box-shadow: 0 0 12px rgba(124,92,255,.6);
+    }
+    .section-sub { color: var(--muted); margin-bottom: 20px; }
+
+    /* Projects grid */
+    .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.15);
+      overflow: hidden; display:flex; flex-direction:column;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 22px rgba(0,0,0,.25); }
+    .card-thumb { height: 150px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:1.05rem; }
+    .card-body { padding: 12px 12px 14px; display:flex; flex-direction:column; gap:6px; }
+    .tag-row { display:flex; gap:6px; flex-wrap:wrap; }
+    .tag { font-size:12px; padding:4px 8px; border-radius:999px; background: rgba(255,255,255,.08); }
+    .card h3 { margin:0; font-size:1.02rem; }
+    .card p { color: var(--muted); font-size: .92rem; margin:0; }
+
+    /* Modal for project details */
+    .modal { position: fixed; inset: 0; display:none; align-items: center; justify-content: center; background: rgba(0,0,0,.6); padding: 20px; }
+    .modal.active { display:flex; }
+    .modal-content { width: min(720px, 92vw); max-height: 80vh; overflow:auto;
+      background: #0b1220; border-radius: 14px; padding: 14px 16px 18px;
+      border: 1px solid rgba(255,255,255,.15); box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    }
+    .modal-header { display:flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .close { background: transparent; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
+
+    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; text-align: left; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* About and Contact sections */
+    .biography { display:flex; flex-direction:column; gap:12px; }
+    ul { margin:0; padding-left:20px; color: var(--muted); }
+
+    /* Cute, accessible form styling */
+    input, textarea {
+      width:100%; padding:12px; border-radius:8px;
+      border:1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.08); color: var(--text);
+    }
+    textarea { resize: vertical; min-height: 120px; }
+
+    .footer-note { text-align:center; color:var(--muted); font-size: .85rem; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#">
+      <span class="brand-logo" aria-label="logo"></span>
+      <span><strong>Biswasree Das</strong></span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#home" class="active" aria-current="page">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero" aria-label="Intro">
+  <div>
+    <span style="display:inline-block; padding:6px 12px; border-radius:999px; background: rgba(124,92,255,.25); color:white; font-weight:700; font-size:12px;">
+      Mathematics student • Frontend aspirant
+    </span>
+    <h1 class="hero-title shine-animate">Hi, I’m Biswasree Das 👋🍰</h1>
+    <p>I'm a math student with a creative mind and a love for coding and fine arts. I’m passionate about turning ideas into delightful frontend experiences and hope to become a frontend developer. I enjoy building small apps and visual experiments as part of my learning journey.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#contact" class="btn secondary">Hire Me</a>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-label="Decorative visuals">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+  </div>
+</section>
+
+<main>
+  <section id="projects" aria-label="Projects">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">A few student-friendly web apps demonstrating frontend skills. Click a card to learn more. Emoji vibe: 😺✨</p>
+
+    <div class="projects" id="projects-grid">
+      <!-- Anime Watchlist -->
+      <article class="card" tabindex="0" data-title="Anime Watchlist" data-desc="A lightweight track-list for anime series with status, ratings, and notes." data-tech="HTML • CSS • JS" data-link="#">
+        <div class="card-thumb" style="background: linear-gradient(135deg,#8b5cf6,#f472b6);">
+          <span>Anime Watchlist 😺</span>
+        </div>
+        <div class="card-body">
+          <div class="tag-row">
+            <span class="tag">UI</span><span class="tag">LocalStorage</span><span class="tag">Filters</span>
+          </div>
+          <h3>Anime Watchlist</h3>
+          <p>Track episodes, status, and personal notes with a clean, responsive UI.</p>
+        </div>
+      </article>
+
+      <!-- Weather App -->
+      <article class="card" tabindex="0" data-title="Weather App" data-desc="A responsive weather dashboard showing current conditions and a 5-day forecast." data-tech="HTML • CSS • JS" data-link="#">
+        <div class="card-thumb" style="background: linear-gradient(135deg,#22c55e,#3b82f6);">
+          <span>Weather App 🌦️</span>
+        </div>
+        <div class="card-body">
+          <div class="tag-row">
+            <span class="tag">APIs</span><span class="tag">UI</span><span class="tag">Responsive</span>
+          </div>
+          <h3>Weather Dashboard</h3>
+          <p>Current conditions and forecast with friendly animations and icons.</p>
+        </div>
+      </article>
+
+      <!-- Song Watchlist -->
+      <article class="card" tabindex="0" data-title="Song Watchlist" data-desc="Track favorite songs, artists, and personal playlists." data-tech="HTML • CSS • JS" data-link="#">
+        <div class="card-thumb" style="background: linear-gradient(135deg,#f59e0b,#f472b6);">
+          <span>Song Watchlist 🎵</span>
+        </div>
+        <div class="card-body">
+          <div class="tag-row">
+            <span class="tag">Playlists</span><span class="tag">Music</span><span class="tag">LocalStorage</span>
+          </div>
+          <h3>Song Watchlist</h3>
+          <p>Curate and rate your favorite tracks with a sleek interface.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<section id="about" aria-label="About">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-sub">I’m a mathematics student who loves coding and the fine arts. My goal is to grow into a frontend developer who builds accessible, beautiful, and high-performance interfaces.</p>
+
+    <div class="grid-2">
+      <div class="card" style="padding:16px;">
+        <h3>Background</h3>
+        <p>Mathematics student with a creative mindset, exploring programming and UI design. I enjoy blending logic with aesthetics to craft intuitive experiences.</p>
+      </div>
+      <div class="card" style="padding:16px;">
+        <h3>Interests</h3>
+        <ul>
+          <li>Frontend development (HTML, CSS, JS, frameworks)</li>
+          <li>Fine arts and design principles</li>
+          <li>Accessibility and inclusive design</li>
+          <li>Continuous learning and portfolio building</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact">
+    <h2 class="section-title">Get in touch</h2>
+    <p class="section-sub">Have a project in mind? Reach out—let’s collaborate. (Teacher-approved vibe: professional with a friendly touch). 😊</p>
+
+    <form id="contact-form" class="grid-2" style="gap:14px; display:grid;" autocomplete="on" onsubmit="return false;">
+      <input type="text" placeholder="Your name" required style="padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);">
+      <input type="email" placeholder="Email" required style="padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);">
+      <input type="text" placeholder="Subject" required style="grid-column: 1 / -1; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);">
+      <textarea placeholder="Message" rows="4" required style="grid-column: 1 / -1; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08);"></textarea>
+      <button class="btn" style="grid-column: 1 / -1; justify-self: start;" onclick="submitMock()">Send Message</button>
+    </form>
+
+    <div class="footer-note" aria-live="polite" style="margin-top:8px;">
+      Pro-tip: For real submissions, connect this form to a backend or a service like EmailJS. 📬
+    </div>
+  </section>
+</main>
+
+<!-- Project modal -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Project details">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 id="modal-title">Project Title</h4>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body" style="padding-top:8px;">
+      <p id="modal-desc">Project description goes here.</p>
+      <p><strong>Tech:</strong> <span id="modal-tech"></span></p>
+      <p><a id="modal-link" href="#" target="_blank" rel="noopener">Live Demo / Repo</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Active nav on scroll (simple)
+  const sections = ["home","projects","about","contact"];
+  const navLinks = Array.from(document.querySelectorAll('nav a'));
+  function setActive(){
+    const fromTop = window.scrollY + 120;
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      if(!section) return;
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const active = fromTop >= top && fromTop < top + height;
+      navLinks.forEach(a => {
+        if (a.getAttribute('href') === '#' + id) {
+          a.classList.toggle('active', active);
+        }
+      });
+    });
+  }
+  window.addEventListener('scroll', setActive);
+  setActive();
+
+  // Modal logic
+  const modal = document.getElementById('modal');
+  function openModal(title, desc, tech, link){
+
+document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-desc').textContent = desc;
+    document.getElementById('modal-tech').textContent = tech;
+    const l = document.getElementById('modal-link');
+    l.textContent = link ? 'Live Demo / Repo' : 'Learn more';
+    l.href = link || '#';
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeModal(){
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden','true');
+  }
+  // Attach click handlers to cards
+  document.querySelectorAll('.card').forEach(card => {
+    const title = card.dataset.title;
+    const desc = card.dataset.desc;
+    const tech = card.dataset.tech;
+    const link = card.dataset.link;
+    const open = () => openModal(title, desc, tech, link);
+    card.addEventListener('click', open);
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') open();
+    });
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+  // Mock submit
+  function submitMock(){
+    alert('Thanks! This is a mock submission. You can contact me through the form.');
+  }
+</script>
+
+</body>
+</html>
