@@ -3,129 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biswasree | Portfolio</title>
+
+<title>Bishwasree | Portfolio</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #0f172a, #1e293b);
-    color: white;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+body {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* HEADER */
 header {
-    text-align: center;
-    padding: 80px 20px;
+  text-align: center;
+  padding: 80px 20px;
 }
 
 header h1 {
-    font-size: 45px;
+  font-size: 3rem;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glow 2s infinite alternate;
 }
 
-header span {
-    color: #38bdf8;
+@keyframes glow {
+  from { text-shadow: 0 0 10px #38bdf8; }
+  to { text-shadow: 0 0 25px #a78bfa; }
 }
 
-nav {
-    text-align: center;
-    background: #020617;
-    padding: 10px;
+header p {
+  margin-top: 10px;
+  opacity: 0.8;
 }
 
-nav a {
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
+/* SECTION */
 section {
-    padding: 50px;
-    max-width: 900px;
-    margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* CARDS */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .card {
-    background: #1e293b;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 15px;
-    transition: 0.3s;
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 20px #38bdf8;
 }
 
+/* BUTTON */
 button {
-    background: #38bdf8;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
 }
 
+button:hover {
+  box-shadow: 0 0 15px #a78bfa;
+}
+
+/* FOOTER */
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #020617;
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+}
+
+/* SCROLL ANIMATION */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>Hi, I'm <span>Biswasree</span></h1>
-    <p>B.Sc Mathematics Student | Creative Thinker | Future Developer</p>
+<header class="hidden">
+  <h1>Hi, I'm Bishwasree ✨</h1>
+  <p>BSc Mathematics Student | Creative Thinker | Future Developer</p>
 </header>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-    <h2>🌟 About Me</h2>
-    <p>
-        I am a creative and curious student who enjoys exploring mathematics,
-        coding, and design. I love building simple yet meaningful projects and
-        continuously learning new skills to grow as a developer.
-    </p>
+<section class="hidden">
+  <h2>About Me</h2>
+  <p>
+    I am a creative student who enjoys coding, art, and learning new technologies.
+    I love building small projects and improving my skills step by step.
+  </p>
 </section>
 
-<section id="projects">
-    <h2>🚀 Projects</h2>
-
-    <div class="card">
-        <h3>🎬 Movie Watchlist</h3>
-        <p>Save and organize your favorite movies in one place.</p>
-    </div>
-
-    <div class="card">
-        <h3>🎧 Music Collection</h3>
-        <p>A collection of my favorite songs and playlists.</p>
-    </div>
-
+<section class="hidden">
+  <h2>Skills</h2>
+  <div class="card-container">
+    <div class="card">HTML 💻</div>
+    <div class="card">CSS 🎨</div>
+    <div class="card">JavaScript ⚡</div>
+  </div>
 </section>
 
-<section id="skills">
-    <h2>🎯 Skills</h2>
-    <div class="card">HTML & CSS</div>
-    <div class="card">Basic JavaScript</div>
-    <div class="card">Creative Design</div>
+<section class="hidden">
+  <h2>Projects</h2>
+  <div class="card-container">
+    <div class="card">📺 Anime Watchlist App</div>
+    <div class="card">🌦 Weather App (Coming Soon)</div>
+  </div>
 </section>
 
-<section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Email: biswasree1324@gmail.com</p>
+<section class="hidden">
+  <h2>Contact</h2>
+  <p>Email: biswasree1324@gmail.com</p>
+  <button onclick="showMessage()">Say Hello 👋</button>
 </section>
 
 <footer>
-    <p>© 2026 Biswasree | Made with ❤️</p>
+  <p>© 2026 Bishwasree</p>
 </footer>
+
+<script>
+function showMessage() {
+  alert("Hello Bishwasree! 🌸 Keep shining!");
+}
+
+/* SCROLL ANIMATION */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
